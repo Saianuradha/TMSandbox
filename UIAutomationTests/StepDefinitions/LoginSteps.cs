@@ -13,13 +13,14 @@ namespace UIAutomationTests.StepDefinitions
     {
         private IWebDriver driver;
         private LoginPage loginPage;
-        public LoginSteps(IWebDriver driver, LoginPage loginPage)
+        public LoginSteps(IWebDriver driver)
         {
             this.driver = driver;
             this.loginPage = new LoginPage(driver);
         }
-        [Given(@"I'm on the home page")]
+        [Given(@"I'm on TradeMe login page")]
         public void GivenImOnTheHomePage()
+
         {
             loginPage.NavigateToTradeMeSandboxPage();
         }
