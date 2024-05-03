@@ -10,7 +10,7 @@ namespace UIAutomationTests.PageObjects
     public class BasePage
     {
         private IWebDriver driver;
-        private string TMSandboxURL = "https://developer.trademe.co.nz";
+        private string TMSandboxURL = "https://www.tmsandbox.co.nz/";
         public BasePage(IWebDriver driver) {
             this.driver = driver;
         }
