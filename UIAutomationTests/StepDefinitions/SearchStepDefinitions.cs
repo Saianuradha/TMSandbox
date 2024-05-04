@@ -2,6 +2,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
+using UIAutomationTests.Hooks;
 using UIAutomationTests.PageObjects;
 
 namespace UIAutomationTests.StepDefinitions
@@ -20,7 +21,7 @@ namespace UIAutomationTests.StepDefinitions
             this.searchPage = new SearchPage(driver);
         }
 
-        [Given(@"I am on the TradeMe homepage\.")]
+        [Given(@"I am on the TradeMe homepage")]
         public void GivenIAmOnTheTradeMeHomepage_()
         {
             loginPage.NavigateToTradeMeSandboxPage();
@@ -35,16 +36,15 @@ namespace UIAutomationTests.StepDefinitions
            
         }
 
-        [When(@"I enter ""([^""]*)"" into the search bar\.")]
+        [When(@"I enter ""([^""]*)"" into the search bar")]
         public void WhenIEnterIntoTheSearchBar_(string Item)
         {
             searchPage.SearchBar.SendKeys(Item);
             searchPage.SearchBar.Click();
-           
-
+        
         }
 
-        [When(@"I click on the search icon\.")]
+        [When(@"I click on the search icon")]
         public void WhenIClickOnTheSearchIcon_()
         {
             searchPage.SearchButton.Click();
@@ -53,6 +53,8 @@ namespace UIAutomationTests.StepDefinitions
         [Then(@"I should see a list of search results related to ""([^""]*)""")]
         public void ThenIShouldSeeAListOfSearchResultsRelatedTo(string nike)
         {
+            
+           
             searchPage.ResultTxt.Click();
             string s = searchPage.GetText();
             Console.WriteLine(s);

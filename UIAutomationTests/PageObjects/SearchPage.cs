@@ -33,11 +33,11 @@ namespace UIAutomationTests.PageObjects
         public IWebElement SearchBar => driver.FindElement(searchBy);
         public IWebElement SearchButton => driver.FindElement(searchButtonBy);
         public IWebElement ResultTxt => driver.FindElement(By.TagName("h3"));
-
+        #endregion Elements
         public string GetText()
         {
             return ResultTxt.Text;
         }
-        #endregion Elements
+       
     }
 }
