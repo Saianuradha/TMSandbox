@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UIAutomationTests.PageObjects;
+using TechTalk.SpecFlow;
+using TSBAssessment.UITests.PageObjects;
+using UIAutomationTests.UITests.PageObjects;
 
-namespace UIAutomationTests.StepDefinitions
+namespace UIAutomationTests.UITests.StepDefinitions
 {
     [Binding]
     public class LoginSteps
@@ -16,7 +18,7 @@ namespace UIAutomationTests.StepDefinitions
         public LoginSteps(IWebDriver driver)
         {
             this.driver = driver;
-            this.loginPage = new LoginPage(driver);
+            loginPage = new LoginPage(driver);
         }
         [Given(@"I'm on TradeMe login page")]
         public void GivenImOnTheHomePage()
@@ -27,7 +29,7 @@ namespace UIAutomationTests.StepDefinitions
         [When(@"I click on the Login in button")]
         public void WhenIClickOnTheLoginInButton()
         {
-            loginPage.LoginLink.Click();   
+            loginPage.LoginLink.Click();
         }
 
         [When(@"I enter Email and password")]
@@ -38,7 +40,7 @@ namespace UIAutomationTests.StepDefinitions
             loginPage.EmailTextbox.SendKeys("sai@gmail.com");
             loginPage.PasswordTextbox.SendKeys("1234");
             loginPage.RememberMeCheckbox.Click();
-            loginPage.LogInButton.Click();    
+            loginPage.LogInButton.Click();
         }
 
         [When(@"I successfully validate the CAPTCHA")]

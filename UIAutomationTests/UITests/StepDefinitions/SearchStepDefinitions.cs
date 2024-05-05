@@ -1,11 +1,9 @@
-using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
 using TechTalk.SpecFlow;
-using UIAutomationTests.Hooks;
-using UIAutomationTests.PageObjects;
+using TSBAssessment.UITests.PageObjects;
+using UIAutomationTests.UITests.PageObjects;
 
-namespace UIAutomationTests.StepDefinitions
+namespace UIAutomationTests.UITests.StepDefinitions
 {
     [Binding]
     public class SearchStepDefinitions
@@ -17,8 +15,8 @@ namespace UIAutomationTests.StepDefinitions
         public SearchStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
-            this.loginPage = new LoginPage(driver);
-            this.searchPage = new SearchPage(driver);
+            loginPage = new LoginPage(driver);
+            searchPage = new SearchPage(driver);
         }
 
         [Given(@"I am on the TradeMe homepage")]
@@ -33,7 +31,7 @@ namespace UIAutomationTests.StepDefinitions
             searchPage.BrowseDropdown.Click();
             var Item = searchPage.DropdownItems.FirstOrDefault(a => a.Text.Contains(category, StringComparison.OrdinalIgnoreCase));
             Item.Click();
-           
+
         }
 
         [When(@"I enter ""([^""]*)"" into the search bar")]
@@ -41,7 +39,7 @@ namespace UIAutomationTests.StepDefinitions
         {
             searchPage.SearchBar.SendKeys(Item);
             searchPage.SearchBar.Click();
-        
+
         }
 
         [When(@"I click on the search icon")]
@@ -53,8 +51,8 @@ namespace UIAutomationTests.StepDefinitions
         [Then(@"I should see a list of search results related to ""([^""]*)""")]
         public void ThenIShouldSeeAListOfSearchResultsRelatedTo(string nike)
         {
-            
-           
+
+
             searchPage.ResultTxt.Click();
             string s = searchPage.GetText();
             Console.WriteLine(s);

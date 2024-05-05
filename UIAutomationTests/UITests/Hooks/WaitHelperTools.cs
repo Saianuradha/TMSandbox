@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 
 
-namespace UIAutomationTests.Hooks
+namespace UIAutomationTests.UITests.Hooks
 {
     public class WaitHelper
     {

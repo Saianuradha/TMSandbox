@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UIAutomationTests.PageObjects
+namespace UIAutomationTests.UITests.PageObjects
 {
     public class BasePage
     {
         private IWebDriver driver;
         private string TMSandboxURL = "https://www.tmsandbox.co.nz/";
-        public BasePage(IWebDriver driver) {
+        public BasePage(IWebDriver driver)
+        {
             this.driver = driver;
         }
         public void NavigateToTradeMeSandboxPage()

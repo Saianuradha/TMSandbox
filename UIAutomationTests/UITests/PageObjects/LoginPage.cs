@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow;
+using UIAutomationTests.UITests.PageObjects;
 
-namespace UIAutomationTests.PageObjects
+namespace TSBAssessment.UITests.PageObjects
 {
     [Binding]
-    public class LoginPage: BasePage
+    public class LoginPage : BasePage
     {
         private IWebDriver driver;
         public LoginPage(IWebDriver driver) : base(driver)
@@ -16,7 +18,7 @@ namespace UIAutomationTests.PageObjects
             this.driver = driver;
         }
 
- 
+
         #region Elements
         public IWebElement LoginLink => driver.FindElement(By.XPath("(//a[@class='logged-out__log-in'])[1]"));
         public IWebElement EmailTextbox => driver.FindElement(By.XPath("//*[@id=\"Email\"]"));

@@ -2,9 +2,10 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
-using UIAutomationTests.PageObjects;
+using TSBAssessment.UITests.PageObjects;
+using UIAutomationTests.UITests.PageObjects;
 
-namespace UIAutomationTests.StepDefinitions
+namespace UIAutomationTests.UITests.StepDefinitions
 {
     [Binding]
     public class SellingStepDefinitions
@@ -17,9 +18,9 @@ namespace UIAutomationTests.StepDefinitions
         public SellingStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
-            this.loginPage = new LoginPage(driver);
-            this.searchPage = new SearchPage(driver);
-            this.sellingPage = new SellingPage(driver);
+            loginPage = new LoginPage(driver);
+            searchPage = new SearchPage(driver);
+            sellingPage = new SellingPage(driver);
         }
 
         [When(@"I click on start a listing link")]

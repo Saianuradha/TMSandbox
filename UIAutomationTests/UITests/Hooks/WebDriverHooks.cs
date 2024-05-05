@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using System;
 using TechTalk.SpecFlow;
 
-namespace UIAutomationTests.Hooks
+namespace UIAutomationTests.UITests.Hooks
 {
     [Binding]
     class WebDriverHooks
@@ -29,8 +29,8 @@ namespace UIAutomationTests.Hooks
 
                     chromeOptions.AddArgument("start-maximized");
                     driver = new ChromeDriver(chromeOptions);
-                    driver.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(5));
-                    container.RegisterInstanceAs<IWebDriver>(driver);
+                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                    container.RegisterInstanceAs(driver);
                     break;
             }
         }

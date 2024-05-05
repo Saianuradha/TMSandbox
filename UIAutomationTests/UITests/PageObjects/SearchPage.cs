@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow;
 
-namespace UIAutomationTests.PageObjects
+namespace UIAutomationTests.UITests.PageObjects
 {
     [Binding]
 
@@ -22,7 +23,7 @@ namespace UIAutomationTests.PageObjects
         public By searchBy => By.CssSelector("input.tm-refine-keywords__search-input-box.ng-untouched");
         public By searchButtonBy => By.XPath("//button[contains(@class,'tm-refine-keywords__search-form-submit-button o-button2--primary')]");
         public By searchResultTextBy => By.XPath("//h3");
-      
+
         public By dropDownItemsBy => By.CssSelector("ul>li");
 
 
@@ -38,6 +39,6 @@ namespace UIAutomationTests.PageObjects
         {
             return ResultTxt.Text;
         }
-       
+
     }
 }
