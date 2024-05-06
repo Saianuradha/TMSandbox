@@ -42,8 +42,8 @@ namespace UIAutomationTests.UITests.Hooks
 
             if (driver != null)
             {
-                //driver.Quit();
-                //driver.Dispose();
+                driver.Quit();
+                driver.Dispose();
             }
         }
 

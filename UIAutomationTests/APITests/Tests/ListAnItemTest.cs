@@ -6,7 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace UIAutomationTests.APITests.Tests
+namespace TSBAssessment.APITests.Tests
 {
     public class ListAnItemTest
     {
@@ -27,7 +27,7 @@ namespace UIAutomationTests.APITests.Tests
         }
 
         [Test]
-        public async Task PostAnItemTest()
+        public async Task TestPostAnItemSucessfull_200()
         {
             // Define the request body with the necessary data
             // Read the JSON file into a string

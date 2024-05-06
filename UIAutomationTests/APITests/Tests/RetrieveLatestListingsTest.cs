@@ -7,7 +7,7 @@ using WireMock.Server;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 
-namespace UIAutomationTests.APITests.Tests
+namespace TSBAssessment.APITests.Tests
 {
     public class RetrieveLatestListingsTest
     {
