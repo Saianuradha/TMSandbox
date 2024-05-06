@@ -13,7 +13,7 @@ namespace TSBAssessment.APITests.Tests
         private string latestListingsUrlPath = "/v1/Listings/Latest";
         private string tokenUrlPath = "/api-overview/authentication";
         private string oAuthToken;
-        private string ProfileOutput;
+        
 
         [Test]
         public void getOAuthToken()   /// getting Oauth token information
