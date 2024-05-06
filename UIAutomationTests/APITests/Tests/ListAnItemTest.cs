@@ -63,7 +63,7 @@ namespace TSBAssessment.APITests.Tests
             // Define WireMock expectation for POST request with different response status
             server.Given(
                Request.Create().WithPath("/v1/Selling").UsingPost()
-                ).RespondWith(Response.Create().WithStatusCode(400));
+                ).RespondWith(Response.Create().WithStatusCode(404));
 
             // Prepare POST request with invalid body
             var requestBody = new { key = "value" };
@@ -75,7 +75,7 @@ namespace TSBAssessment.APITests.Tests
             var response = client.Execute(request);
 
             // Assert the response status code
-            Assert.AreEqual(400, (int)response.StatusCode);
+            Assert.AreEqual(404, (int)response.StatusCode);
         }
         [Test]
         public void TestPostRequestWithUnAuthorized_401()
@@ -87,7 +87,9 @@ namespace TSBAssessment.APITests.Tests
                 .RespondWith(Response.Create().WithStatusCode(401));
 
             // Prepare POST request body
-            var requestBody = new { key = "value" };
+            string jsonFilePath = "C:\\Users\\shyam\\OneDrive\\Desktop\\Anuradha\\C#\\TMSandbox\\UIAutomationTests\\APITests\\Data\\listItemData.json";
+            string requestBody = File.ReadAllText(jsonFilePath);
+
 
             // Make POST request using RestSharp with custom header
             var client = new RestClient(server.Urls[0]);

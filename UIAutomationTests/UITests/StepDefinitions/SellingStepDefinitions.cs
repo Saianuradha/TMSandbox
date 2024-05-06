@@ -48,7 +48,7 @@ namespace UIAutomationTests.UITests.StepDefinitions
         [When(@"I select Item for listing")]
         public void WhenISelectItemForListing()
         {
-            listingPage.searchForAnItem(string item);
+            listingPage.searchForAnItem("item");
         }
 
         [When(@"I sucessfully navigate to pricing")]
