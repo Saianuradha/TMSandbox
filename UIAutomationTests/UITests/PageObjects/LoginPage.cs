@@ -55,5 +55,18 @@ namespace TSBAssessment.UITests.PageObjects
             PasswordTextbox.SendKeys(password);
             
         }
+        public bool IsLoggedIn()
+        {
+            try
+            {
+               // Checking for the presence of the logout button
+                driver.FindElement(By.Id("Logout"));
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
     }
 }

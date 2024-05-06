@@ -77,6 +77,7 @@ namespace UIAutomationTests.UITests.StepDefinitions
         [Then(@"home page is displayed")]
         public void ThenHomePageIsDisplayed()
         {
+            Assert.IsTrue(loginPage.IsLoggedIn(), "Login unsuccessful");
             Assert.IsTrue(loginPage.GetPageHeading().Contains("Home page"));
         }
         [When(@"I enter invalid email and valid password")]
@@ -143,7 +144,7 @@ namespace UIAutomationTests.UITests.StepDefinitions
         [Then(@"I should be automatically logged in without having to enter credentials again")]
         public void ThenIShouldBeAutomaticallyLoggedInWithoutHavingToEnterCredentialsAgain()
         {
-            throw new PendingStepException();
+            loginPage.IsLoggedIn();
         }
 
 
