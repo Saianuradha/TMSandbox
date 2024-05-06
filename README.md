@@ -1,8 +1,10 @@
-This project is built on C# with Selenium, SpecFlow, and NUnit to test the TradeMe sandbox website. I have utilized WireMock for testing API interactions, and Selenium for UI testing.
-**UI Testing**
+# TradeMe UI & API Automation #
+>This project is built on C# with Selenium, SpecFlow, and NUnit to test the TradeMe sandbox website. 
+>I have utilized WireMock for testing API interactions, and Selenium for UI testing.
+## UI Testing ##
 This section involves testing the 3 different features which include Login, Search and ListItem.
 
-**Login Scenarios:**
+### Login Scenarios: ###
 When dealing with scenarios involving reCaptcha, automating interactions with reCaptcha is not straightforward due to its purpose of preventing automated access. 
 However, I have still automated other aspects of the customer login process and handled reCaptcha manually.
 
