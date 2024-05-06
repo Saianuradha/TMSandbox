@@ -16,8 +16,8 @@ SC01:
 5. Other scenarios also included thoroughly verifying the login page and login functionality.
 
 ## API Testing ##
-
-I have opted to use WireMocks in my solutions to work with API calls for testing the Listing method and selling methods.
+Basic test classess included for both API requests using Restsharp.This requests can be made by passing required authentication parameters.
+Furtherly, I have opted to use WireMocks in my solutions to work with API calls for testing the Listing method and selling methods.
 1. Setup WireMock: First, I set up WireMock, which is a flexible library for stubbing and mocking HTTP services. I used the standalone WireMock server and  integrated it directly into my test code.
 2. Defined Expectations: Using WireMock, I defined the expectations for the HTTP requests that the RestSharp client will make. This included specifying the request URL, HTTP method, headers, query parameters, and the response I wanted WireMock to return. I have specified JSON files with data for both selling and listing methods.
 3. Write Test Cases: I have written test cases using RestSharp to make requests to GET/POST API's. Useed WireMock to mock the server's responses based on the defined expectations.
