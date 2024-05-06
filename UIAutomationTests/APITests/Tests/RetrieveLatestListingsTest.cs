@@ -27,7 +27,7 @@ namespace UIAutomationTests.APITests.Tests
             server.Stop();
         }
 
-        private void GetLatestListings_ReturnsSuccess()
+        private void GetLatestListings_ReturnSuccess()
         {
             // Read the content of the JSON file
             string jsonFilePath = "C:\\Users\\shyam\\OneDrive\\Desktop\\Anuradha\\C#\\TMSandbox\\UIAutomationTests\\APITests\\Data\\listingData.json";
@@ -39,7 +39,7 @@ namespace UIAutomationTests.APITests.Tests
             ).RespondWith(
                 Response.Create()
                 .WithStatusCode(200)
-                .WithHeader("Content-Type", "application/json") // Change content type if JSON
+                .WithHeader("Content-Type", "application/json") 
                 .WithBody(responseBody)
             );
         }
@@ -49,7 +49,7 @@ namespace UIAutomationTests.APITests.Tests
         public async Task RetrieveLatestListingsTest_200()
         {
             // Arrange
-            GetLatestListings_ReturnsSuccess();
+            GetLatestListings_ReturnSuccess();
            
             RestRequest request = new RestRequest("/v1/Listings/Latest", Method.Get);
 
@@ -68,6 +68,7 @@ namespace UIAutomationTests.APITests.Tests
             // Assert
             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             Assert.That(response.ContentType, Is.EqualTo("application/json"));
+            Console.WriteLine(response.Content);
 
         }
     }

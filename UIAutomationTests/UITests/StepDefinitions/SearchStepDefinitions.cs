@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using TSBAssessment.UITests.PageObjects;
@@ -52,11 +53,7 @@ namespace UIAutomationTests.UITests.StepDefinitions
         public void ThenIShouldSeeAListOfSearchResultsRelatedTo(string nike)
         {
 
-
-            searchPage.ResultTxt.Click();
-            string s = searchPage.GetText();
-            Console.WriteLine(s);
-            //Assert.IsTrue(searchPage.GetText().Contains("Showing 4 results for 'nike'"));
+            Assert.IsTrue(searchPage.GetText().Contains("Showing 4 results for 'nike'"));
 
 
         }
