@@ -54,9 +54,10 @@ namespace TSBAssessment.APITests.Tests   // Test class to list an item
             request.AddBody(requestBody);
 
             var response = client.Execute(request);
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+            Assert.That(response.Content, Is.EqualTo("{'message': 'Success'}"));
 
-            
+
         }
     }
 }
