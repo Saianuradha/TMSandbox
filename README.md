@@ -24,6 +24,8 @@ Furtherly, I have opted to use WireMocks in my solutions to work with API calls 
 
    For more details, refer reference document attached.
 
+I have also written API tests using postman, please find them using TradeMeAPITests.postman_collection file.
+
 
 
 
