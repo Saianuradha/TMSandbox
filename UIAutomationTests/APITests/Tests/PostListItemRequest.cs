@@ -22,39 +22,41 @@ namespace TSBAssessment.APITests.Tests   // Test class to list an item
         [Test]
         public void getOAuthToken()  // getting oAuth token from Authorization page"
         {
-            var client = new RestClient(hostUrl);
-            var request = new RestRequest(tokenUrlPath, Method.Post);
-            request.AddParameter("grant_type", "Authorization");
-            request.AddParameter("CONSUMER_KEY", "1BF6AAB61BCA5860794E7DBB359B6898");
-            request.AddParameter("CONSUMER_SECRET", "ACBC52B7E84289794C6FF307986374F6");
-            var response = client.Execute(request);
-            ResponseToken responseToken = JsonConvert.DeserializeObject<ResponseToken>(response.Content);
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-            oAuthToken = responseToken.AccessToken;
+                var client = new RestClient(hostUrl);
+                var request = new RestRequest(tokenUrlPath, Method.Post);
+                request.AddParameter("oauth_consumer_key", "consumer_key");
+                request.AddParameter("oauth_consumer_secret", "consumer_secret");
+                request.AddParameter("oauth_signature_method", "PLAINTEXT");
+
+                var response = client.Execute(request);
+                Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+
+                var responseToken = JsonConvert.DeserializeObject<ResponseToken>(response.Content);
+                oAuthToken = responseToken.AccessToken;           
 
         }
 
         [Test]
         public void PostAnItemTest()
         {
+
             var client = new RestClient(hostUrl);
-            var request = new RestRequest(tokenUrlPath, Method.Post);
+            var request = new RestRequest(listItemUrlPath, Method.Post);
+            request.AddParameter("oauth_consumer_key", "consumer_key");
+            request.AddParameter("oauth_consumer_secret", "consumer_secret");
+            request.AddParameter("oauth_key", "oAuthKey");
+            request.AddParameter("oauth_token", "oAuthToken");
+            request.AddParameter("oauth_signature_method", "PLAINTEXT");
+            
+            string jsonFilePath = "C:\\Users\\shyam\\OneDrive\\Desktop\\Anuradha\\C#\\TMSandbox\\UIAutomationTests\\APITests\\Data\\listItemData.json";
+            string requestBody = File.ReadAllText(jsonFilePath);
 
-            request.AddParameter("grant_type", "Authorization");
-            request.AddParameter("Oauth_KEY", "*******");
-            request.AddParameter("Oauth_SECRET", "########");
+            request.AddBody(requestBody);
+
             var response = client.Execute(request);
-            ResponseToken responseToken = JsonConvert.DeserializeObject<ResponseToken>(response.Content);  //sending post reuqest
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-            oAuthToken = responseToken.AccessToken;
 
-            var request2 = new RestRequest(listItemUrlPath, Method.Post);
-            Console.WriteLine(oAuthToken);
-            request2.AddHeader("authorization", "Bearer " + oAuthToken);
-            var response2 = client.Execute(request2);
-            Assert.AreEqual(HttpStatusCode.OK, response2.StatusCode);
-
-
+            
         }
     }
 }
