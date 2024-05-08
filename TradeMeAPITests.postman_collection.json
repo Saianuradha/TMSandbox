@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "136c5f07-dfcd-4c6e-9310-bf9f9641338b",
+		"name": "TradeMe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15092290",
+		"_collection_link": "https://winter-star-392551.postman.co/workspace/b7483f98-0995-4905-8405-aa2ef57f19ea/collection/15092290-136c5f07-dfcd-4c6e-9310-bf9f9641338b?action=share&source=collection_link&creator=15092290"
+	},
+	"item": [
+		{
+			"name": "LatestListings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check if the status code is 200 (OK)\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\tpm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Check if the response has at least one user\r",
+							"pm.test(\"Response has users\", function () {\r",
+							"\t// Parse the JSON response\r",
+							"\tconst jsonData = pm.response.json();\r",
+							"\r",
+							"\t// Check if the response is an array and has at least one element\r",
+							"\tpm.expect(jsonData).to.be.an('array').and.to.have.lengthOf.at.least(1);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "tokenSecret",
+							"value": "{{token_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "{{consumer_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerKey",
+							"value": "{{consumer_key}}",
+							"type": "string"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "PLAINTEXT",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.tmsandbox.co.nz/v1/Listings/Latest.JSON",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tmsandbox",
+						"co",
+						"nz"
+					],
+					"path": [
+						"v1",
+						"Listings",
+						"Latest.JSON"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CategoriesDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SellingAnItem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Create a new post', async () => {\r",
+							"const response = await pm.request('Create a Post');\r",
+							"\r",
+							"// Check the status code\r",
+							"pm.expect(response.code).to.equal(201);\r",
+							"\r",
+							"// Check the response body\r",
+							"pm.expect(response.json()).to.have.property('title');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "tokenSecret",
+							"value": "{{token_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "{{consumer_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerKey",
+							"value": "{{consumer_key}}",
+							"type": "string"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "PLAINTEXT",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Category\": \"ABC\",\r\n  \"Title\": \"ABC\",\r\n  \"Subtitle\": \"ABC\",\r\n  \"Description\": [\r\n    \"ABC\",\r\n    \"ABC\"\r\n  ],\r\n  \"StartPrice\": 123.0,\r\n  \"ReservePrice\": 123.0,\r\n  \"BuyNowPrice\": 123.0,\r\n  \"Duration\": 0,\r\n  \"EndDateTime\": \"\\/Date(1514764800)\\/\",\r\n  \"Pickup\": 0,\r\n  \"PickupSuburbId\": 123,\r\n  \"IsBrandNew\": false,\r\n  \"AuthenticatedMembersOnly\": false,\r\n  \"IsClassified\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.tmsandbox.co.nz/v1/Selling.JSON",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tmsandbox",
+						"co",
+						"nz"
+					],
+					"path": [
+						"v1",
+						"Selling.JSON"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategories",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
